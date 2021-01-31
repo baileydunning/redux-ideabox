@@ -14,6 +14,9 @@ class ToDo extends Component {
 
   handleChange = () => {
     this.props.toggleComplete(this.state.id)
+    this.setState({
+      completed: !this.state.completed
+    })
   }
 
   render() {
