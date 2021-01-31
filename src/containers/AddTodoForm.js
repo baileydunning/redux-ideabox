@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { addToDo } from '../actions'
+import { connect } from 'react-redux'
 
 class AddTodoForm extends Component {
   constructor(props) {
@@ -7,11 +9,12 @@ class AddTodoForm extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ todo: e.target.value })
+    this.setState({todo: e.target.value})
   }
 
   submitForm = (e) => {
     e.preventDefault()
+    this.props.addToDo(e.target.value)
     this.setState({ todo: '' })
   }
 
@@ -31,7 +34,7 @@ class AddTodoForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addToDo: text => dispatch(addToDo(text))
+  addToDo: todo => dispatch(addToDo(todo))
 })
 
 export default connect(null, mapDispatchToProps)(AddTodoForm)
