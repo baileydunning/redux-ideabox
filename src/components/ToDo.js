@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
+import { toggleComplete } from '../actions'
 import { connect } from 'react-redux'
 
 class ToDo extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      id: this.props.id,
+      todo: this.props.todo,
+      completed: this.props.completed
+    }
   }
+
+  handleChange = () => {
+    this.props.toggleComplete(this.state.id)
+  }
+
   render() {
     return (
       <form className='todo-item'>
           <input
-            checked={this.props.completed} 
+            onChange={() => this.handleChange()}
+            checked={this.state.completed} 
             type='checkbox'
             name='completed' />
         <label htmlFor='completed'>
@@ -20,8 +32,9 @@ class ToDo extends Component {
   }
 }
 
+
 const mapDispatchToProps = dispatch => ({
-  toggleComplete: id => dispatch(this.props.toggleComplete(id))
+  toggleComplete: id => dispatch(toggleComplete(id))
 })
 
 export default connect(null, mapDispatchToProps)(ToDo)

@@ -1,12 +1,15 @@
 export const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return [...state, { id: Date.now(), todo: action.todo, completed: false }]
+      const newToDo = { id: Date.now(), todo: action.todo, completed: false }
+      return newToDo.todo && [...state, newToDo]
     case 'TOGGLE_COMPLETE':
-      const foundTodo = state.todos.find(todo => {
-        return todo.id === action.id
+      return state.map(todo => {
+        if (todo.id === action.id) {
+          todo.completed = !todo.completed
+        }
+        return todo
       })
-      return foundTodo.completed = !foundTodo.completed
     default:
       return state
   }

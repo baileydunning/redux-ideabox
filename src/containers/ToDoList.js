@@ -3,15 +3,20 @@ import Todo from '../components/ToDo'
 import { connect } from 'react-redux'
 
 const ToDoList = ({ todos }) => {
-  const displayTodos = todos.map(todo => {
-    return (
-      <Todo
-        todo={todo.todo}
-        key={todo.id}
-        completed={todo.completed}
-      />
-    )
-  })
+  let displayTodos
+  
+  if (todos) {
+    displayTodos = todos.map(todo => {
+      return (
+        <Todo
+          todo={todo.todo}
+          id={todo.id}
+          key={todo.id}
+          completed={todo.completed}
+        />
+      )
+    })
+  }
 
   return (
     <section className='todo-list'>
