@@ -30,4 +30,8 @@ class AddTodoForm extends Component {
   }
 }
 
-export default AddTodoForm
+const mapDispatchToProps = dispatch => ({
+  addToDo: text => dispatch(addToDo(text))
+})
+
+export default connect(null, mapDispatchToProps)(AddTodoForm)
