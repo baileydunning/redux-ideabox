@@ -143,14 +143,13 @@ li {
   display: none;
   position: fixed;
   z-index: 1;
-  left: 0;
+  width: 60vw;
   top: 0;
-  width: 100%;
 }
 
 .modal-content {
   background-color: #fefefe;
   border: 1px solid black;
   margin: 15% auto;
-  padding: 20%;
+  padding: 3%;
 }

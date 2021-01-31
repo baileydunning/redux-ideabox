@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { toggleComplete, editTodo } from '../actions'
+import { toggleComplete, editTodo, deleteTodo } from '../actions'
 import { connect } from 'react-redux'
 import '../index.css'
 
@@ -61,7 +61,7 @@ class ToDo extends Component {
             name='completed'
           />
         <div>
-          <h3 onClick={() => this.showModal()}>
+          <h3 style={{cursor: 'pointer'}} onClick={() => this.showModal()}>
             {this.state.todo}
             <span style={{color: `${this.state.priority}`}}> ◉</span>
           </h3>
@@ -69,7 +69,7 @@ class ToDo extends Component {
         </form>
         <section id='modal'>
           <div className='modal-content'>
-          <h2 onClick={() => this.hideModal()}>X</h2>
+          <h2 onClick={() => this.hideModal()} style={{cursor: 'pointer', textAlign: 'left'}}>X</h2>
             <form>
               <label>Edit: 
               <input
@@ -90,7 +90,7 @@ class ToDo extends Component {
               </label>
               <button onClick={(e) => this.submitEdit(e)}>SUBMIT EDIT</button>
             </form>
-            <button>DELETE TODO</button>
+            <button onClick={() => this.props.deleteTodo(this.state.id)}>DELETE TODO</button>
           </div>
         </section>
       </section>
@@ -101,7 +101,8 @@ class ToDo extends Component {
 
 const mapDispatchToProps = dispatch => ({
   toggleComplete: id => dispatch(toggleComplete(id)),
-  editTodo: todo => dispatch(editTodo(todo))
+  editTodo: todo => dispatch(editTodo(todo)),
+  deleteTodo: id => dispatch(deleteTodo(id))
 })
 
 export default connect(null, mapDispatchToProps)(ToDo)

@@ -15,6 +15,10 @@ export const todos = (state = [], action) => {
         }
         return todo
       })
+    case 'DELETE_TODO':
+      return state.filter(todo => {
+        return todo.id !== action.id
+      })
     case 'TOGGLE_COMPLETE':
       return state.map(todo => {
         if (todo.id === action.id) {
