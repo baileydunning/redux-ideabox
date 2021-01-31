@@ -7,3 +7,8 @@ export const toggleComplete = id => ({
   type: 'TOGGLE_COMPLETE',
   id
 })
+
+export const editTodo = todo => ({
+  type: 'EDIT_TODO',
+  todo
+})

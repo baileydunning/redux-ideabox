@@ -7,7 +7,7 @@ class AddTodoForm extends Component {
     super(props)
     this.state = { 
       todo: '',
-      priority: '' 
+      priority: 'red' 
     }
   }
 
@@ -22,7 +22,7 @@ class AddTodoForm extends Component {
       priority: this.state.priority
     }
     this.props.addToDo(newTodo)
-    this.setState({ todo: '', priority: '' })
+    this.setState({ todo: '' })
   }
 
   render() {

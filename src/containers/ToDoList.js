@@ -24,13 +24,13 @@ const ToDoList = ({ todos }) => {
       <div className='incomplete'>
         <h2 style={{ textAlign: 'center' }}>INCOMPLETE</h2>
         <section className='todo-list'>
-          {filterTodos(false)}
+          { filterTodos(false) }
         </section>
       </div>
       <div className='complete'>
         <h2 style={{ textAlign: 'center' }}>COMPLETE</h2>
         <section className='todo-list'>
-          {filterTodos(true)}
+          { filterTodos(true) }
         </section>
       </div>
     </section>
