@@ -3,24 +3,36 @@ import Todo from '../components/ToDo'
 import { connect } from 'react-redux'
 
 const ToDoList = ({ todos }) => {
-  let displayTodos
-  
-  if (todos) {
-    displayTodos = todos.map(todo => {
-      return (
-        <Todo
-          todo={todo.todo}
-          id={todo.id}
-          key={todo.id}
-          completed={todo.completed}
-        />
-      )
+  const filterTodos = (status) => {
+    return todos.map(todo => {
+      if (todo.completed === status) {
+        return (
+          <Todo
+            todo={todo.todo}
+            id={todo.id}
+            key={todo.id}
+            priority={todo.priority}
+            completed={todo.completed}
+          />
+        )
+      }
     })
   }
 
   return (
-    <section className='todo-list'>
-      { displayTodos }
+    <section className='main-container'>
+      <div className='incomplete'>
+        <h2 style={{ textAlign: 'center' }}>INCOMPLETE</h2>
+        <section className='todo-list'>
+          { filterTodos(false) }
+        </section>
+      </div>
+      <div className='complete'>
+        <h2 style={{ textAlign: 'center' }}>COMPLETE</h2>
+        <section className='todo-list'>
+          { filterTodos(true) }
+        </section>
+      </div>
     </section>
   )
 }
