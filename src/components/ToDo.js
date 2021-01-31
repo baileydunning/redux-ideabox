@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToDo = ({ id, todo, completed }) => {
+const ToDo = ({ todo }) => {
   return (
     <li>{todo}</li>
   )

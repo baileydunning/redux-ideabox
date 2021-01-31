@@ -14,7 +14,7 @@ class AddTodoForm extends Component {
 
   submitForm = (e) => {
     e.preventDefault()
-    this.props.addToDo(e.target.value)
+    this.props.addToDo(this.state.todo)
     this.setState({ todo: '' })
   }
 
