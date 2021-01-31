@@ -8,16 +8,15 @@ const ToDoList = ({ todos }) => {
       <Todo
         todo={todo.todo}
         key={todo.id}
+        completed={todo.completed}
       />
     )
   })
 
-  console.log(displayTodos)
-
   return (
-    <ul>
+    <section className='todo-list'>
       { displayTodos }
-    </ul>
+    </section>
   )
 }
 

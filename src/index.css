@@ -99,3 +99,20 @@ li {
 .not-completed {
   text-decoration: none;
 }
+
+.todo-list {
+  margin-top: 5%;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.todo-item input {
+  background-color: transparent;
+  box-shadow: none;
+  width: 50px;
+}
