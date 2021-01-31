@@ -1,12 +1,3 @@
-### Setup
+# Redux ToDo List
 
-This app was created using the `create-react-app` boilerplate.
-
-#### Install Dependencies
-`npm install`  
-
-#### Start Dev Server
-`npm start`  
-
-### Run Tests
-`npm test`
+![gif](https://media.giphy.com/media/R0aHBEXpXV3pCpoOjP/giphy.gif)
