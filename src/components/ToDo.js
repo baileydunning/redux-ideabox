@@ -8,6 +8,7 @@ class ToDo extends Component {
     this.state = {
       id: this.props.id,
       todo: this.props.todo,
+      priority: this.props.priority,
       completed: this.props.completed
     }
   }
@@ -18,7 +19,6 @@ class ToDo extends Component {
       completed: !this.state.completed
     })
   }
-
   render() {
     return (
       <form className='todo-item'>
@@ -26,10 +26,14 @@ class ToDo extends Component {
             onChange={() => this.handleChange()}
             checked={this.state.completed} 
             type='checkbox'
-            name='completed' />
-        <label htmlFor='completed'>
-          { this.props.todo }
-        </label>
+            name='completed'
+          />
+        <div>
+          <h3>
+            {this.state.todo}
+            <span style={{color: `${this.state.priority}`}}> ◉</span>
+          </h3>
+        </div>
       </form>
     )
   }

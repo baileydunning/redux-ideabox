@@ -11,6 +11,7 @@ const ToDoList = ({ todos }) => {
             todo={todo.todo}
             id={todo.id}
             key={todo.id}
+            priority={todo.priority}
             completed={todo.completed}
           />
         )
@@ -20,18 +21,18 @@ const ToDoList = ({ todos }) => {
 
   return (
     <section className='main-container'>
-      <section className='incomplete'>
-      <h2 style={{textAlign: 'center'}}>INCOMPLETE</h2>
-      <section className='todo-list'>
-        { filterTodos(false) }
-      </section>
-      </section>
-      <section className='complete'>
+      <div className='incomplete'>
+        <h2 style={{ textAlign: 'center' }}>INCOMPLETE</h2>
+        <section className='todo-list'>
+          {filterTodos(false)}
+        </section>
+      </div>
+      <div className='complete'>
         <h2 style={{ textAlign: 'center' }}>COMPLETE</h2>
         <section className='todo-list'>
-          { filterTodos(true) }
+          {filterTodos(true)}
         </section>
-      </section>
+      </div>
     </section>
   )
 }
